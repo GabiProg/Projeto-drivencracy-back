@@ -38,7 +38,7 @@ export async function retornaEnquetes (req, res) {
     try {
         const listaEnquetes = await db.collection("enquetes").find().toArray();
 
-        res.send(listaEnquetes);
+        res.status(200).send(listaEnquetes);
     } catch (error) {
         res.sendStaus(500);
     }
