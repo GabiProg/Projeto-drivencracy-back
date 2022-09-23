@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -14,4 +14,4 @@ try {
     console.log(error);
 }
 
-export { db };
+export { db, ObjectId };
