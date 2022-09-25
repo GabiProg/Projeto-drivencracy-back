@@ -25,7 +25,7 @@ export async function OpcaoVoto (req, res) {
 
         await db.collection("opcao").insertOne({
             title,
-            pollId: verificaEnquete._id
+            pollId: ObjectId(verificaEnquete._id)
         })
 
         const enviaOpcao = await db.collection("opcao").find({title}).toArray();
@@ -45,8 +45,8 @@ export async function RetornaOpcoes (req, res) {
             return res.sendStatus(404);
         }
 
-        const listaOpcoes = await db.collection("opcao").find({pollId: id}).toArray();
-        res.status(200).send([...listaOpcoes]);
+        const listaOpcoes = await db.collection("opcao").find({pollId: ObjectId(listaEnquetes._id)}).toArray();
+        res.status(200).send(listaOpcoes);
 
     } catch (error) {
         res.sendStatus(500);
