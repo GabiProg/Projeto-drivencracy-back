@@ -4,12 +4,11 @@ import cors from "cors";
 import creationRoute from "./routes/creationRoute.js";
 import choiceRoute from "./routes/choiceRoute.js";
 import resultRoute from "./routes/resultRoute.js";
-//https://drivencracy-backend.herokuapp.com/poll
 dotenv.config();
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
@@ -18,4 +17,4 @@ app.use(creationRoute);
 app.use(choiceRoute);
 app.use(resultRoute);
 
-app.listen(PORT, () => console.log(`The server is listening on ${PORT}`));
+app.listen(PORT, () => console.log(`The server is listening on ${PORT}.`));
